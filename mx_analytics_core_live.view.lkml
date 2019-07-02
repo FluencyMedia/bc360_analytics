@@ -13,19 +13,28 @@ view: mx_analytics_core_live {
 
   dimension: minute_index {
     label: "Minute (Index)"
-    hidden: yes
+    hidden: no
     type: number
     sql: ${TABLE}.minute_index ;;
   }
 
+  dimension: minute_key {
+    label: "Minute (Key)"
+    primary_key: yes
+    hidden: yes
+    type: string
+    sql: ${TABLE}.minute_index ;;
+  }
 
   dimension_group: timestamp {
-    hidden: yes
+    hidden: no
     type: time
     timeframes: [
       raw,
       time,
+      hour_of_day,
       date,
+      day_of_week,
       week,
       month,
       quarter,

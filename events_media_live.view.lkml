@@ -59,11 +59,16 @@ view: events_media_live {
   }
 
   dimension: minute_index {
-    primary_key: yes
-
     group_item_label: "Timeframes"
     label: "Minute (Index)"
     type: number
+    sql: ${TABLE}.minute_index ;;
+  }
+
+  dimension: minute_key {
+    primary_key: yes
+
+    type: string
     sql: ${TABLE}.minute_index ;;
   }
 
