@@ -1,5 +1,4 @@
 view: events_media_live {
-  # sql_table_name: mx_analytics.events_media_live ;;
 
   derived_table: {
     datagroup_trigger: dg_bc360_mx_analytics
@@ -59,6 +58,8 @@ view: events_media_live {
   }
 
   dimension: minute_index {
+    primary_key: yes
+
     group_item_label: "Timeframes"
     label: "Minute (Index)"
     type: number

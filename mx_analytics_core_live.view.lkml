@@ -1,6 +1,15 @@
 view: mx_analytics_core_live {
   label: "Analytics"
-  sql_table_name: mx_analytics.mx_analytics_core_live ;;
+
+  derived_table: {
+    datagroup_trigger: dg_bc360_mx_analytics
+
+    sql:  SELECT
+            *
+          FROM `bc360-main.mx_analytics.mx_analytics_core_live`;;
+  }
+
+
 
   dimension: minute_index {
     label: "Minute (Index)"

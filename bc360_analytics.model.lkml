@@ -16,7 +16,7 @@ explore: events_media_live {
   label: "Media Events"
 
   join: mx_analytics_core_live {
-    sql_on: ${events_media_live.timestamp_raw} = ${mx_analytics_core_live.timestamp_raw} ;;
+    sql_on: ${events_media_live.minute_index} = ${mx_analytics_core_live.minute_index} ;;
     relationship: many_to_one
     type:  left_outer
   }
