@@ -21,3 +21,7 @@ explore: events_media_live {
     type:  left_outer
   }
 }
+
+explore: mx_analytics_core_live {
+  label: "BC360 - GA Metrics [TEST]"
+}
