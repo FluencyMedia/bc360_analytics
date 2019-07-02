@@ -5,8 +5,17 @@ view: events_media_live {
     datagroup_trigger: dg_bc360_mx_analytics
 
     sql:  SELECT
+            ROW_NUMBER() OVER () row_index,
             *
           FROM `bc360-main.mx_analytics.events_media_live`;;
+  }
+
+  dimension: row_index {
+    label: "Row Index"
+    hidden: yes
+    primary_key: yes
+
+    sql: ${TABLE}.row_index ;;
   }
 
   dimension: advertiser {
@@ -66,8 +75,6 @@ view: events_media_live {
   }
 
   dimension: minute_key {
-    primary_key: yes
-
     type: string
     sql: ${TABLE}.minute_index ;;
   }
