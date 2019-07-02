@@ -1,22 +1,17 @@
 view: mx_analytics_core_live {
+  label: "Analytics"
   sql_table_name: mx_analytics.mx_analytics_core_live ;;
 
   dimension: minute_index {
+    label: "Minute (Index)"
+    hidden: yes
     type: number
     sql: ${TABLE}.minute_index ;;
   }
 
-  dimension: pageviews {
-    type: number
-    sql: ${TABLE}.pageviews ;;
-  }
-
-  dimension: sessions {
-    type: number
-    sql: ${TABLE}.sessions ;;
-  }
 
   dimension_group: timestamp {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -30,18 +25,11 @@ view: mx_analytics_core_live {
     sql: ${TABLE}.timestamp ;;
   }
 
-  dimension: users {
-    type: number
-    sql: ${TABLE}.users ;;
-  }
-
-  dimension: users_new {
-    type: number
+  measure: users_new {
+    label: "# Users (New)"
+    type: sum
+    value_format_name: decimal_0
     sql: ${TABLE}.users_new ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
 }

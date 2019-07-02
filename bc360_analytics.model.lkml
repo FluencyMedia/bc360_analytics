@@ -14,4 +14,10 @@ label: "BC360 - All Clients"
 
 explore: events_media_live {
   label: "Media Events"
+
+  join: mx_analytics_core_live {
+    sql_on: ${events_media_live.timestamp_raw} = ${mx_analytics_core_live.timestamp_raw} ;;
+    relationship: many_to_one
+    type:  left_outer
+  }
 }
