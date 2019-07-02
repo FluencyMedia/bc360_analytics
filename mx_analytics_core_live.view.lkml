@@ -22,10 +22,10 @@ view: mx_analytics_core_live {
             SUM(pageviews) OVER (ORDER BY minute_index ASC RANGE BETWEEN CURRENT ROW AND 7 FOLLOWING) pageviews_post_spot,
 
             ##### MEASURES: Span two 30-Minute "Collars" Before and After 8-Minute Trailing Window
-            ((SUM(users)     OVER (ORDER BY minute_index ASC RANGE BETWEEN 9 FOLLOWING AND 39 FOLLOWING) + SUM(users)     OVER (ORDER BY minute_index ASC RANGE BETWEEN 31 PRECEDING AND 1 PRECEDING))/2) users_collar,
-            ((SUM(users_new) OVER (ORDER BY minute_index ASC RANGE BETWEEN 9 FOLLOWING AND 39 FOLLOWING) + SUM(users_new) OVER (ORDER BY minute_index ASC RANGE BETWEEN 31 PRECEDING AND 1 PRECEDING))/2) users_new_collar,
-            ((SUM(sessions)  OVER (ORDER BY minute_index ASC RANGE BETWEEN 9 FOLLOWING AND 39 FOLLOWING) + SUM(sessions)  OVER (ORDER BY minute_index ASC RANGE BETWEEN 31 PRECEDING AND 1 PRECEDING))/2) sessions_collar,
-            ((SUM(pageviews) OVER (ORDER BY minute_index ASC RANGE BETWEEN 9 FOLLOWING AND 39 FOLLOWING) + SUM(pageviews) OVER (ORDER BY minute_index ASC RANGE BETWEEN 31 PRECEDING AND 1 PRECEDING))/2) pageviews_collar
+            (SUM(users)     OVER (ORDER BY minute_index ASC RANGE BETWEEN 8 FOLLOWING AND 38 FOLLOWING) + SUM(users)     OVER (ORDER BY minute_index ASC RANGE BETWEEN 31 PRECEDING AND 1 PRECEDING)) users_collar,
+            (SUM(users_new) OVER (ORDER BY minute_index ASC RANGE BETWEEN 8 FOLLOWING AND 38 FOLLOWING) + SUM(users_new) OVER (ORDER BY minute_index ASC RANGE BETWEEN 31 PRECEDING AND 1 PRECEDING)) users_new_collar,
+            (SUM(sessions)  OVER (ORDER BY minute_index ASC RANGE BETWEEN 8 FOLLOWING AND 38 FOLLOWING) + SUM(sessions)  OVER (ORDER BY minute_index ASC RANGE BETWEEN 31 PRECEDING AND 1 PRECEDING)) sessions_collar,
+            (SUM(pageviews) OVER (ORDER BY minute_index ASC RANGE BETWEEN 8 FOLLOWING AND 38 FOLLOWING) + SUM(pageviews) OVER (ORDER BY minute_index ASC RANGE BETWEEN 31 PRECEDING AND 1 PRECEDING)) pageviews_collar
           FROM `bc360-main.mx_analytics.mx_analytics_core_live`;;
   }
 
