@@ -47,7 +47,7 @@ view: mx_analytics_core_live {
     label: "# Users (New)"
     type: sum
     value_format_name: decimal_0
-    sql: ${TABLE}.users_new ;;
+    sql: NULLIF(${TABLE}.users_new, 0) ;;
   }
 
 }
