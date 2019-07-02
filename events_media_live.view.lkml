@@ -69,7 +69,7 @@ view: events_media_live {
     group_label: "Broadcast Details"
     label: "Program"
     type: string
-    sql: ${TABLE}.program ;;
+    sql: IFNULL(${TABLE}.program, "[NO PROGRAM]") ;;
   }
 
   dimension: station {
