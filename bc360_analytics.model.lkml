@@ -13,7 +13,7 @@ include: "*.view.lkml"
 label: "BC360 - All Clients"
 
 explore: events_media_live {
-  label: "Media Events"
+  label: "BC360 - Media Events"
 
   join: mx_analytics_core_live {
     sql_on: ${events_media_live.minute_index} = ${mx_analytics_core_live.minute_index} ;;

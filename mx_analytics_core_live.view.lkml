@@ -1,5 +1,5 @@
 view: mx_analytics_core_live {
-  label: "Analytics"
+  label: "GA Analytics"
 
   derived_table: {
     datagroup_trigger: dg_bc360_mx_analytics

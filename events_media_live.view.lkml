@@ -1,4 +1,5 @@
 view: events_media_live {
+  label: "Media Events"
 
   derived_table: {
     datagroup_trigger: dg_bc360_mx_analytics
