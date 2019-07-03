@@ -94,11 +94,12 @@ view: events_media_live {
   }
 
   dimension_group: timestamp {
-    label: "Air Time"
+    label: "Airtime"
     type: time
     timeframes: [
       raw,
       time,
+      time_of_day,
       hour_of_day,
       date,
       day_of_week,
@@ -112,8 +113,8 @@ view: events_media_live {
 
   measure: events_num {
     label: "# Spots"
-    type: count_distinct
-    sql: ${row_index} ;;
+    type: number
+    sql: NULLIF(COUNT(DISTINCT ${TABLE}.row_index), 0);;
   }
 
 }
