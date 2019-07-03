@@ -18,7 +18,7 @@ explore: events_media_live {
   join: mx_analytics_core_live {
     sql_on: ${events_media_live.minute_key} = ${mx_analytics_core_live.minute_key} ;;
     relationship: many_to_one
-    type:  left_outer
+    type:  full_outer
   }
 }
 

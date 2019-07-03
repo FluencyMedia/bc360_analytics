@@ -110,4 +110,10 @@ view: events_media_live {
     sql: ${TABLE}.timestamp ;;
   }
 
+  measure: events_num {
+    label: "# Spots"
+    type: count_distinct
+    sql: ${row_index} ;;
+  }
+
 }
