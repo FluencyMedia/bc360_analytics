@@ -25,9 +25,9 @@ explore: events_media_live {
 explore: mx_analytics_core_live {
   label: "BC360 - GA Metrics [TEST]"
 
-  join: events_media_live {
-  sql_on: ${mx_analytics_core_live.minute_key} = ${events_media_live.minute_key};;
-  relationship: one_to_many
-  type:  full_outer
-}
+    join: events_media_live {
+    sql_on: ${mx_analytics_core_live.minute_key} = ${events_media_live.minute_key};;
+    relationship: one_to_many
+    type:  full_outer
+  }
 }
