@@ -117,4 +117,12 @@ view: events_media_live {
     sql: NULLIF(COUNT(DISTINCT ${TABLE}.row_index), 0);;
   }
 
+  measure: lift_sig_count {
+    view_label: "Lift Measurements"
+    label: "# Signicant Lift Events"
+    type: number
+    value_format_name: decimal_0
+    sql: IF((${mx_analytics_core_live.users_lift_raw} > 0.005), 1, null);;
+  }
+
 }

@@ -87,6 +87,7 @@ view: mx_analytics_core_live {
   }
 
   measure: users_new_post_spot_total {
+    view_label: "Lift Measurements"
     label: "# New Users [TREATED]"
     type: number
     value_format_name: decimal_0
@@ -94,6 +95,7 @@ view: mx_analytics_core_live {
   }
 
   measure: users_new_collar_total {
+    view_label: "Lift Measurements"
     label: "# New Users [BASELINE]"
     type: number
     value_format_name: decimal_0
@@ -101,22 +103,25 @@ view: mx_analytics_core_live {
   }
 
   measure: users_new_avg_min_post {
+    view_label: "Lift Measurements"
     label: "@ New Users/Min [TREATED]"
     type: number
     value_format_name: decimal_0
-    sql: SAFE_DIVIDE(${users_new_post_spot_total},8) ;;
-    # sql: SAFE_DIVIDE(${users_new_post_spot_total},${minutes_post_total}) ;;
+    # sql: SAFE_DIVIDE(${users_new_post_spot_total},8) ;;
+    sql: SAFE_DIVIDE(${users_new_post_spot_total},${minutes_post_total}) ;;
   }
 
   measure: users_new_avg_min_collar {
+    view_label: "Lift Measurements"
     label: "@ New Users/Min [BASELINE]"
     type: number
     value_format_name: decimal_0
-    sql: SAFE_DIVIDE(${users_new_collar_total},60) ;;
-    # sql: SAFE_DIVIDE(${users_new_collar_total},${minutes_collar_total}) ;;
+    # sql: SAFE_DIVIDE(${users_new_collar_total},60) ;;
+    sql: SAFE_DIVIDE(${users_new_collar_total},${minutes_collar_total}) ;;
   }
 
   measure: users_new_lift_raw {
+    view_label: "Lift Measurements"
     label: "+ New Users: Lift (RAW)"
     type: number
     value_format_name: percent_1
@@ -124,6 +129,7 @@ view: mx_analytics_core_live {
   }
 
   measure: users_new_lift {
+    view_label: "Lift Measurements"
     label: "+ New Users: Lift"
     type: number
     value_format_name: percent_1
@@ -142,6 +148,7 @@ view: mx_analytics_core_live {
   }
 
   measure: users_post_spot_total {
+    view_label: "Lift Measurements"
     label: "# Users [TREATED]"
     type: number
     value_format_name: decimal_0
@@ -149,6 +156,7 @@ view: mx_analytics_core_live {
   }
 
   measure: users_collar_total {
+    view_label: "Lift Measurements"
     label: "# Users [BASELINE]"
     type: number
     value_format_name: decimal_0
@@ -156,6 +164,7 @@ view: mx_analytics_core_live {
   }
 
   measure: users_avg_min_post {
+    view_label: "Lift Measurements"
     label: "@ Users/Min [TREATED]"
     type: number
     value_format_name: decimal_0
@@ -164,6 +173,7 @@ view: mx_analytics_core_live {
   }
 
   measure: users_avg_min_collar {
+    view_label: "Lift Measurements"
     label: "@ Users/Min [BASELINE]"
     type: number
     value_format_name: decimal_0
@@ -172,6 +182,7 @@ view: mx_analytics_core_live {
   }
 
   measure: users_lift_raw {
+    view_label: "Lift Measurements"
     label: "+ Users: Lift (RAW)"
     type: number
     value_format_name: percent_1
@@ -179,6 +190,7 @@ view: mx_analytics_core_live {
   }
 
   measure: users_lift {
+    view_label: "Lift Measurements"
     label: "+ Users: Lift"
     type: number
     value_format_name: percent_1
