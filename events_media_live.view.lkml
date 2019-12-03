@@ -122,7 +122,7 @@ view: events_media_live {
     label: "# Signicant Lift Events"
     type: number
     value_format_name: decimal_0
-    sql: IF((${mx_analytics_core_live.users_lift_raw} > 0.005), 1, null);;
+    sql: IF((${mx_analytics_core_legacy.users_lift_raw} > 0.005), 1, null);;
   }
 
 }
