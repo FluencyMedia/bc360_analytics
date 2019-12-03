@@ -81,7 +81,7 @@ view: mx_analytics_core_live {
   }
 
   measure: pageviews {
-    label: "# Pageview"
+    label: "# Pageviews"
     type: number
     value_format_name: decimal_0
     sql: NULLIF(SUM(${TABLE}.pageviews),0) ;;
