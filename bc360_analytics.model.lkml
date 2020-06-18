@@ -11,3 +11,7 @@ include: "//bc360_outcomes/*.view.lkml"
 include: "*.view.lkml"
 
 label: "BC360 - All Clients"
+
+explore: mx_ga_combined {
+  label: "BC360 - GA Metrics"
+}
