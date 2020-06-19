@@ -243,6 +243,14 @@ view: mx_ga_combined {
     sql: (1.0*${time_on_page})/NULLIF(${pageviews},0) ;;
   }
 
+  measure: pageviews_per_user {
+    group_label: "  Page Insights"
+    label: "Avg. Pageviews per User"
+    type: number
+    value_format_name: decimal_1
+    sql: (1.0*${pageviews})/NULLIF(${users},0) ;;
+  }
+
   measure: users {
     group_label: "    User Insights"
     label: "Users"
