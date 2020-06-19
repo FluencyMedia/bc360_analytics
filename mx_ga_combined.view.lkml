@@ -230,6 +230,8 @@ view: mx_ga_combined {
   measure: time_on_page {
     group_label: "  Page Insights"
     type: number
+    value_format_name: decimal_1
+
     sql: NULLIF(SUM(${TABLE}.time_on_page), 0) ;;
   }
 
@@ -237,6 +239,7 @@ view: mx_ga_combined {
     group_label: "  Page Insights"
     label: "Avg. Time on Page"
     type: number
+    value_format_name: decimal_1
     sql: (1.0*${time_on_page})/NULLIF(${pageviews},0) ;;
   }
 
