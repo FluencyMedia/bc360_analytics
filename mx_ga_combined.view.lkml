@@ -29,7 +29,7 @@ view: mx_ga_combined {
   }
 
   dimension: domain {
-    group_label: "  Page Insights"
+    group_label: "   Page Insights"
     group_item_label: "Domain"
     label: "Path - Domain"
     type: string
@@ -37,7 +37,7 @@ view: mx_ga_combined {
   }
 
   dimension: subdir {
-    group_label: "  Page Insights"
+    group_label: "   Page Insights"
     group_item_label: "Subdir"
     label: "Path - Subdir"
     type: string
@@ -103,7 +103,7 @@ view: mx_ga_combined {
   }
 
   dimension: is_related {
-    group_label: "  Page Insights"
+    group_label: "   Page Insights"
     label: "Related Link?"
     type: string
     case: {
@@ -169,7 +169,7 @@ view: mx_ga_combined {
   }
 
   dimension: path_3 {
-    group_label: "  Page Insights"
+    group_label: "   Page Insights"
     group_item_label: "3rd Level"
     label: "Path - 3rd Level"
     type: string
@@ -177,21 +177,21 @@ view: mx_ga_combined {
   }
 
   dimension: page_title {
-    group_label: "  Page Insights"
+    group_label: "   Page Insights"
     label: "Page Title"
     type: string
     sql: ${TABLE}.page_title ;;
   }
 
   dimension: page_url {
-    group_label: "  Page Insights"
+    group_label: "   Page Insights"
     label: "Page URL - Full"
     type: string
     sql: ${TABLE}.page_url ;;
   }
 
   dimension: page_url_short {
-    group_label: "Page Insights"
+    group_label: "   Page Insights"
     label: "Page URL"
     type: string
     sql: REGEXP_REPLACE(REGEXP_REPLACE(${TABLE}.page_url, r"^[a-z,\.]*\/", "/"), r"\/[0-9]*$", "/") ;;
@@ -204,13 +204,13 @@ view: mx_ga_combined {
   }
 
   measure: pageviews {
-    group_label: "  Page Insights"
+    group_label: "   Page Insights"
     type: number
     sql: NULLIF(SUM(${TABLE}.pageviews), 0) ;;
   }
 
   measure: pageviews_unique {
-    group_label: "  Page Insights"
+    group_label: "   Page Insights"
     type: number
     sql: NULLIF(SUM(${TABLE}.pageviews_unique), 0) ;;
   }
@@ -266,35 +266,35 @@ view: mx_ga_combined {
 
 
   dimension: page_title_orig {
-    group_label: "      Raw Elements"
-    hidden: yes
+    group_label: "Raw Elements"
+    hidden: no
     type: string
     sql: ${TABLE}.page_title_orig ;;
   }
 
   dimension: page_url_orig {
-    group_label: "      Raw Elements"
+    group_label: "Raw Elements"
     hidden: no
     type: string
     sql: ${TABLE}.page_url_orig ;;
   }
 
   dimension: path_1_orig {
-    group_label: "      Raw Elements"
+    group_label: "Raw Elements"
     hidden: yes
     type: string
     sql: ${TABLE}.path_1_orig ;;
   }
 
   dimension: path_2_orig {
-    group_label: "      Raw Elements"
+    group_label: "Raw Elements"
     hidden: no
     type: string
     sql: ${TABLE}.path_2_orig ;;
   }
 
   dimension: path_3_orig {
-    group_label: "      Raw Elements"
+    group_label: "Raw Elements"
     hidden: yes
     type: string
     sql: ${TABLE}.path_3_orig ;;
