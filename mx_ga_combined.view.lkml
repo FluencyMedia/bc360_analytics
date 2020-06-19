@@ -194,7 +194,7 @@ view: mx_ga_combined {
     group_label: "Page Insights"
     label: "Page URL"
     type: string
-    sql: REGEXP_REPLACE(${TABLE}.page_url, r"^[a-z,\.]*\/", "/") ;;
+    sql: REGEXP_REPLACE(REGEXP_REPLACE(${TABLE}.page_url, r"^[a-z,\.]*\/", "/"), r"\/[0-9]*$", "/") ;;
   }
 
   dimension: source {
