@@ -185,9 +185,16 @@ view: mx_ga_combined {
 
   dimension: page_url {
     group_label: "  Page Insights"
-    label: "Page URL"
+    label: "Page URL - Full"
     type: string
     sql: ${TABLE}.page_url ;;
+  }
+
+  dimension: page_url_short {
+    group_label: "Page Insights"
+    label: "Page URL"
+    type: string
+    sql: REGEXP_REPLACE(${TABLE}.page_url, r"^[a-z,\.]*\/", "/") ;;
   }
 
   dimension: source {
