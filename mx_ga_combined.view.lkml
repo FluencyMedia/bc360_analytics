@@ -203,6 +203,51 @@ view: mx_ga_combined {
     sql: ${TABLE}.source ;;
   }
 
+
+  dimension: is_prs {
+    group_label: "Provider Insights"
+    group_item_label: "PRS?"
+    label: "Provider - PRS?"
+    type: string
+
+    case: {
+      when: {
+        sql: REGEXP_CONTAINS(${page_title_orig}, r"\ \-\ Request\ Appointment$") ;;
+        label: "PRS"
+      }
+      else: "Non-PRS"
+    }
+  }
+
+  dimension: provider_name {
+    group_label: "Provider Insights"
+    group_item_label: "Name"
+    label: "Provider Name"
+    type: string
+    sql: IF((${page_url_short} LIKE "/provider%") OR (${page_url_short} LIKE "/kyruus%"), SPLIT(${page_title}," - ")[ORDINAL(1)], NULL) ;;
+  }
+
+  dimension: provider_location {
+    group_label: "Provider Insights"
+    group_item_label: "Location"
+    label: "Provider Location"
+    type: string
+    sql: REGEXP_EXTRACT(
+            REGEXP_REPLACE(${page_title_orig}, r"\ \-\ Request\ Appointment$", "")
+            , r"\ \-\ (.*)\ \-\ .*$") ;;}
+
+  dimension: provider_specialty {
+    group_label: "Provider Insights"
+    group_item_label: "Specialty"
+    label: "Provider Specialty"
+    type: string
+    sql: REGEXP_EXTRACT(
+            REGEXP_REPLACE(${page_title_orig}, r"\ \-\ Request\ Appointment$", "")
+            , r"\ \-\ .*\ \-\ (.*)$") ;;
+  }
+
+
+
   measure: pageviews {
     group_label: "   Page Insights"
     type: number
